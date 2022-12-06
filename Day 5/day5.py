@@ -3,10 +3,9 @@ import re
 
 
 pattern = re.compile('\d+')
+stacks = stacks2 = out = out2 = []
 
 with open('input.txt') as f:
-    stacks = []
-    stacks2 = []
     cargo = np.zeros((9, 36), dtype=object)
     for i in range(0, 9):
         s = f.readline()
@@ -23,24 +22,23 @@ with open('input.txt') as f:
 
     lines = f.readlines()
 
-    for l in lines:
-        nums = pattern.findall(l)
+for l in lines:
+    nums = pattern.findall(l)
 
-        for i in range(0, int(nums[0])):
-            stacks[int(nums[2]) - 1].append(stacks[int(nums[1]) - 1].pop())
+    for i in range(0, int(nums[0])):
+        stacks[int(nums[2]) - 1].append(stacks[int(nums[1]) - 1].pop())
 
-        stacks2[int(nums[2]) - 1].extend(stacks2[int(nums[1]) - 1][-int(nums[0]):])
-        del stacks2[int(nums[1]) - 1][-int(nums[0]):]
+    stacks2[int(nums[2]) - 1].extend(stacks2[int(nums[1]) - 1][-int(nums[0]):])
+    del stacks2[int(nums[1]) - 1][-int(nums[0]):]
 
-    out = []
-    out2 = []
-    for s in stacks:
-        out.append(s[-1])
-    for s in stacks2:
-        out2.append(s[-1])
-    
-    print(f"1. {''.join(out)}")
-    print(f"2. {''.join(out2)}")
+
+for s in stacks:
+    out.append(s[-1])
+for s in stacks2:
+    out2.append(s[-1])
+
+print(f"1. {''.join(out)}")
+print(f"2. {''.join(out2)}")
 
     
 
