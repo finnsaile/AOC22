@@ -25,4 +25,3 @@ for b in backpacks2:
 
 print(f"1. {get_sum(c_list)}")
 print(f"2. {get_sum(c_list2)}")
-

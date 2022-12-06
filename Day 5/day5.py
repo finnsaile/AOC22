@@ -39,9 +39,3 @@ for s in stacks2:
 
 print(f"1. {''.join(out)}")
 print(f"2. {''.join(out2)}")
-
-    
-
-        
-
- 
