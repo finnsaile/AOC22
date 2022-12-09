@@ -1,4 +1,3 @@
-import numpy as np
 line = list(open('input.txt').read().strip())
 
 for i in range(0, len(line) - 3):
