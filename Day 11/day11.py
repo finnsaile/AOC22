@@ -20,12 +20,11 @@ class monkey:
         self.items[index] = new
         return new
 
-monkeys = [monkey(par) for par in open('test.txt').read().split('\n\n')]
+monkeys = [monkey(par) for par in open('input.txt').read().split('\n\n')]
 monkeys2 = deepcopy(monkeys)
 
 def get_business(monkeys, n, part2=False):
     modulus = np.prod([m.div for m in monkeys])
-    print(modulus) # 96577
     for _ in range(0, n):
         for m in monkeys:
             for index, _ in enumerate(m.items):
@@ -49,7 +48,7 @@ def get_business(monkeys, n, part2=False):
     return counts[-1] * counts[-2]
 
 
-print(get_business(monkeys, 20)) # = 10605
-print(get_business(monkeys2, 20, True)) # = 10197
+print(f'1. {get_business(monkeys, 20)}')
+print(f'2. {get_business(monkeys2, 10000, True)}')
 
 
